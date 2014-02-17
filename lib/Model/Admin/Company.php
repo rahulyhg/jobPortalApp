@@ -6,6 +6,9 @@ class Model_Admin_Company extends \Model_Table {
 	var $table= "jobPortalApp_company";
 	function init(){
 		parent::init();
+
+		$this->addField('companyname');
+
 		$this->hasOne('Epan','epan_id');
 		$this->hasMany('Admin_Branch','Company_id');
 		$this->hasMany('Admin_Package','Company_id');

@@ -6,6 +6,8 @@ class Model_Admin_ResumeTemplate extends \Model_Table {
 	var $table= "jobPortalApp_resumetemplate";
 	function init(){
 		parent::init();
-		$this->addField('name');
+		$this->addField('resumedetails');
+		$this->addField('templatedetails');
+
 	}
 }
