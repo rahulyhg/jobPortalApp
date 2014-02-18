@@ -7,7 +7,8 @@ class Model_Admin_City extends \Model_Table {
 	function init(){
 		parent::init();
 		$this->hasOne('State','state_id');
-		$this->addField('name');
+		$this->addField('name')->mandatory('please enter the city name')->type('varchar');
+		$this->addField('city_code')->mandatory('please enter the branch_code')->type('varchar');
 	}
 }
 		
