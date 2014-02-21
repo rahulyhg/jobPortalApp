@@ -1,4 +1,4 @@
 jobPortalApp
 ============
 
-A Complete Job Portal Application for xEpan CMS
+A Complete Job Portal Application for xEpan CMS ...
