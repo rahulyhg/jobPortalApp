@@ -4,9 +4,18 @@ class Model_Employer extends \Model_Table{
 	public $table='jobPortalApp_employer';
 	function init(){
 		parent::init();
+		$this->addField('name')->mandatory('please enter the employers name be must');
+		$this->addField('company_code')->mandatory('please enter the company_code be must');
+		$this->addField('e-mail')->mandatory('please enter the e-mail address');
+		$this->addField('address')->mandatory('please enter the current address');
+		$this->addField('country')->mandatory('please enter the country name be must');
+		$this->addField('state')->mandatory('please enter the state name be must');
+		$this->addField('district')->mandatory('please enter the district name be must()');
+		$this->addField('date')->type('date');
+
+		$this->hasMany('Admin_jobApplied','employer_id');
 
 
-		$this->addField('name');
 		$this->hasMany('jobPortalApp/JobApplied','employer_id');
 		
 		$this->addHook('beforeDelete',$this);
@@ -32,5 +41,7 @@ class Model_Employer extends \Model_Table{
 
 		if($this->ref('jobPortalApp/JobApplied')->count()->getOne()>0)
 			throw $this->exception('Please Delete jobApplied content');
+	if($this->ref('jobPortalApp/Admin_JobApplied')->count()->getOne()>0)
+	throw $this->exception('Please Delete jobApplied content');
 	}
 }

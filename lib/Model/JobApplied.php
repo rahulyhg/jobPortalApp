@@ -7,7 +7,6 @@ class Model_JobApplied extends \Model_Table{
 
 		$this->hasOne('jobPortalApp/Employer','employer_id')->caption('employer Name');
 		$this->hasOne('jobPortalApp/JobSeeker','jobseeker_id')->caption('jobseeker Name');
-		$this->addField('name');
 	
 		
 		$this->addHook('beforeSave',$this);

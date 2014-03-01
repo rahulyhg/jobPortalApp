@@ -7,15 +7,19 @@ class Model_JobSeeker extends \Model_Table{
 
 
 	
-		$this->hasMany('jobPortalApp/JobApplied','jobseeker_id');
 		$this->addField('name');
+		$this->addField('is_active')->type('boolean')->defaultValue(true);
 		
 		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
+		$this->hasMany('jobPortalApp/JobApplied','jobseeker_id');
 		
 		$this->add('dynamic_model/Controller_AutoCreator');
 
 	}
+
+
+	
 	
 
 	function beforeSave(){
