@@ -4,20 +4,23 @@ class Model_Employer extends \Model_Table{
 	public $table='jobPortalApp_employer';
 	function init(){
 		parent::init();
-		$this->addField('name')->mandatory('please enter the employers name be must');
-		$this->addField('company_code')->mandatory('please enter the company_code be must');
-		$this->addField('e-mail')->mandatory('please enter the e-mail address');
-		$this->addField('address')->mandatory('please enter the current address');
-		$this->addField('country')->mandatory('please enter the country name be must');
-		$this->addField('state')->mandatory('please enter the state name be must');
-		$this->addField('district')->mandatory('please enter the district name be must()');
-		$this->addField('date')->type('date');
 
-		$this->hasMany('Admin_jobApplied','employer_id');
+		$this->hasOne('jobPortalApp/Company','company_id');
 
-
-		$this->hasMany('jobPortalApp/JobApplied','employer_id');
+		$this->addField('name')->Caption('Your Full Name');
+		$this->addField('title')->Caption('Your Job Title');
+		$this->addField('company')->Caption('Your Company');
+		$this->addField('location')->Caption('Company Location');
+		$this->addField('mobile_num')->type('number')->Caption('Mobile no');
+		$this->addField('email')->Caption('Your Email');
+		$this->addField('website')->Caption('Company Website');
+		$this->addField('recruitment_needs')->Caption('Your Recruitment Needs');
+		$this->addField('company_type')->enum(array('Employer','Recruiting Agency'))->display(array('form'=>'Radio'))->mandatory(true);
+		$this->addField('is_active')->type('boolean')->defaultValue(false);
 		
+		$this->hasMany('','');
+		//$this->hasMany('Admin_jobApplied','employer_id');
+		$this->hasMany('jobPortalApp/JobApplied','employer_id');	
 		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
 		
@@ -39,9 +42,12 @@ class Model_Employer extends \Model_Table{
 	}
 	function beforeDelete(){
 
+
 		if($this->ref('jobPortalApp/JobApplied')->count()->getOne()>0)
 			throw $this->exception('Please Delete jobApplied content');
+
 	if($this->ref('jobPortalApp/Admin_JobApplied')->count()->getOne()>0)
 	throw $this->exception('Please Delete jobApplied content');
+
 	}
 }

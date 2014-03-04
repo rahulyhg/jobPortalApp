@@ -1,10 +1,11 @@
 <?php
-class page_jobPortalApp_page_owner_branch extends page_jobPortalApp_page_owner_main{
+class page_jobPortalApp_page_owner_resumetemplate extends page_jobPortalApp_page_owner_main{
+
 	function init(){
 		parent::init();
 		
 		$crud=$this->add('CRUD');
-		$crud->setModel('jobPortalApp/Branch');
+		$crud->setModel('jobPortalApp/ResumeTemplate');
 		if($crud->grid){
 		$crud->grid->addPaginator(2);
 		$crud->grid->addQuickSearch(array('name'));

@@ -5,7 +5,7 @@ class Model_Packages extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->hasOne('jobPortalApp/Company','company_id')->caption('State Name');
+		$this->hasOne('jobPortalApp/Company','company_id');
 		$this->addField('name');
 	
 		

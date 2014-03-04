@@ -5,11 +5,20 @@ class Model_JobSeeker extends \Model_Table{
 	function init(){
 		parent::init();
 
-
-	
-		$this->addField('name');
+		$this->hasMany('jobPortalApp/JobApplied','jobseeker_id');
+		$this->addField('name')->Caption('JobSeeker name');
+		$this->addField('designation');
+		$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'))->mandatory(true);
+		$this->addField('dob')->type('date');
+		$this->addField('age')->type('number');
+		$this->addField('father_name')->Caption('Father name');
+		$this->addField('mother _name')->Caption('Mother name');
+		$this->addField('current_address')->type('text');
+		$this->addField('parmanent_address')->type('text');
+		$this->addField('category')->enum(array('gen','obc','stc','sc','st','other'));
+		$this->addField('phone_number')->type('number')->Caption('Mobile no');
 		$this->addField('is_active')->type('boolean')->defaultValue(true);
-		
+
 		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);
 		$this->hasMany('jobPortalApp/JobApplied','jobseeker_id');
@@ -33,9 +42,10 @@ class Model_JobSeeker extends \Model_Table{
 		throw $this->exception('It is Already Exist');
 		}
 	}
+
 	function beforeDelete(){
 
 	if($this->ref('jobPortalApp/JobApplied')->count()->getOne()>0)
 	throw $this->exception('Please Delete jobApplied content');
 	}
-}
+}  

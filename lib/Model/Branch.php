@@ -7,11 +7,15 @@ class Model_Branch extends \Model_Table{
 
 
    		$this->hasOne('jobPortalApp/Company','company_id')->caption('Company Name');
-		 //  $this->addField('name')->setValueList(array('1'=>'Head_Branch','2'=>'Sub_Branch'));
-		   // $this->addField('branch_code')->mandatory('Branch_Code');
-		    $this->addField('address')->mandatory('Branch_Address')->type('text');
-		    $this->addField('location')->mandatory('Branch_Location');
-		    $this->hasMany('jobPortalApp/Staff','branch_id');
+		   	  $this->addField('Branch_name');
+		      	$this->addField('current address')->type('text');
+				$this->addField('parmanent address')->type('text');
+				$this->addField('Your Mobile Number')->type('number')->Caption('Mobile no');;
+		        $this->addField('Email')->Caption('Your Email');
+		        $this->addField('location')->mandatory('Branch_Location');
+		  	    $this->addField('is_active')->type('boolean')->defaultValue(false);
+		 	    
+		 	    $this->hasMany('jobPortalApp/Staff','branch_id');
 		
 		$this->addHook('beforeDelete',$this);
 		$this->addHook('beforeSave',$this);

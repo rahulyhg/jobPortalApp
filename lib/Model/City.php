@@ -5,13 +5,15 @@ class Model_City extends \Model_Table{
 	function init(){
 		parent::init();
 
-		$this->hasOne('State','state_id');
+		
 		$this->hasOne('jobPortalApp/Country','country_id')->caption('Country Name');
 		$this->hasOne('jobPortalApp/State','state_id')->caption('State Name');
 		
-		$this->addField('name');
-		$this->addField('city_code');
+		$this->addField('name')->mandatory('please enter the city name be must');
+		$this->addField('city_code')->mandatory('please enter the branch_code be must');
 
+
+		
 		
 		$this->addHook('beforeSave',$this);
 		
@@ -29,7 +31,7 @@ class Model_City extends \Model_Table{
 				$city->tryLoadAny();
 			if($city->loaded()){
 				throw $this->exception('It is Already Exist');
-			}
+		}
 	}
 	
 }

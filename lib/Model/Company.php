@@ -7,11 +7,13 @@ class Model_Company extends \Model_Table{
 
 
 		$this->hasOne('Epan','epan_id');
-		$this->addField('name')->mandatory('Company_Name');
-		$this->addField('category')->mandatory('this field has not empity')->type('varchar');
-		$this->addField('company_Code')->type('varchar');
-		$this->addField('address')->mandatory('Comany_address')->type('text');
-		$this->addField('location')->mandatory('Comany_Location');
+		$this->addField('name')->Caption('Company name');
+		$this->addField('Current Number of Employees')->Caption('Current Number of Employees')->enum(array('0-50','50-200','200-500','500 more'));
+		$this->addField('parmanent address')->type('text');
+		$this->addField('location');
+		$this->addField('phone_number')->type('number')->Caption('Mobile no');
+		$this->addField('Email')->Caption('Your Email');
+		$this->addField('is_active')->type('boolean')->defaultValue(true);
 	
 		$this->hasMany('jobPortalApp/Branch','company_id');
 		$this->hasMany('jobPortalApp/Package','company_id');
