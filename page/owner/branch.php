@@ -9,8 +9,14 @@ class page_jobPortalApp_page_owner_branch extends page_jobPortalApp_page_owner_m
 		$crud->grid->addPaginator(2);
 		$crud->grid->addQuickSearch(array('name'));
 		$crud->grid->addColumn('button','deactive');
-		
-			
 		}
+		if($_GET['deactive']){
+			$branch=$this->add('jobPortalApp/Model_Branch');
+			$branch->load($_GET['deactive']);
+			$branch['is_active']=!$branch['is_active'];
+			$branch->save();
+			$crud->grid->js()->reload()->execute();
+		}
+					
 	}
 }

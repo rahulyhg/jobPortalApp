@@ -7,9 +7,9 @@ class Model_Company extends \Model_Table{
 
 
 		$this->hasOne('Epan','epan_id');
-		$this->addField('name')->Caption('Company name');
-		$this->addField('Current Number of Employees')->Caption('Current Number of Employees')->enum(array('0-50','50-200','200-500','500 more'));
-		$this->addField('parmanent address')->type('text');
+		$this->addField('name')->Caption('Company Name');
+		$this->addField('number_of_employees')->Caption('Current Number of Employees')->enum(array('0-50','50-200','200-500','500 more'));
+		$this->addField('parmanent_address')->type('text');
 		$this->addField('location');
 		$this->addField('phone_number')->type('number')->Caption('Mobile no');
 		$this->addField('Email')->Caption('Your Email');

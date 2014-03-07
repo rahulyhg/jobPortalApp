@@ -9,7 +9,7 @@ class Model_Employer extends \Model_Table{
 
 		$this->addField('name')->Caption('Your Full Name');
 		$this->addField('title')->Caption('Your Job Title');
-		$this->addField('company')->Caption('Your Company');
+		$this->addField('company_names')->Caption('Your Company');
 		$this->addField('location')->Caption('Company Location');
 		$this->addField('mobile_num')->type('number')->Caption('Mobile no');
 		$this->addField('email')->Caption('Your Email');
