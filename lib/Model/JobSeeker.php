@@ -12,7 +12,7 @@ class Model_JobSeeker extends \Model_Table{
 		$this->addField('dob')->type('date');
 		$this->addField('age')->type('number');
 		$this->addField('father_name')->Caption('Father name');
-		$this->addField('mother _name')->Caption('Mother name');
+		$this->addField('mother_name')->Caption('Mother name');
 		$this->addField('current_address')->type('text');
 		$this->addField('parmanent_address')->type('text');
 		$this->addField('category')->enum(array('gen','obc','stc','sc','st','other'));

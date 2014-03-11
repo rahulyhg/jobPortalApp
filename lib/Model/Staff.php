@@ -13,10 +13,10 @@ class Model_Staff extends \Model_Table {
 		$this->addField('gender')->enum(array('Male','Female'))->display(array('form'=>'Radio'))->mandatory(true);
 		$this->addField('dob')->type('date');
 		$this->addField('age')->type('number');
-		$this->addField('father name')->Caption('Father name');
-		$this->addField('mother name')->Caption('Mother name');
-		$this->addField('current address')->type('text');
-		$this->addField('parmanent address')->type('text');
+		$this->addField('father_name')->Caption('Father name');
+		$this->addField('mother_name')->Caption('Mother name');
+		$this->addField('current_address')->type('text');
+		$this->addField('parmanent_address')->type('text');
 		$this->addField('category')->enum(array('gen','obc','stc','sc','st','other'));
 		$this->addField('phone_number')->type('number')->Caption('Mobile no');
 		$this->addField('is_marital status')->type('boolean');

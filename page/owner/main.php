@@ -14,5 +14,7 @@ class page_jobPortalApp_page_owner_main extends page_componentBase_page_owner_ma
 		$menu->addMenuItem('jobPortalApp_page_owner_state','State');
 		$menu->addMenuItem('jobPortalApp_page_owner_employer','Employers');
 		$menu->addMenuItem('jobPortalApp_page_owner_jobseeker','JobSeekers');
+		$menu->addMenuItem('jobPortalApp_page_owner_resume','Resume');
+		$menu->addMenuItem('jobPortalApp_page_owner_resume_resumeField','ResumeField');
 	}
 }

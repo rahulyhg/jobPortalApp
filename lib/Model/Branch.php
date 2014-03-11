@@ -5,16 +5,15 @@ class Model_Branch extends \Model_Table{
 	function init(){
 		parent::init();
 
-
    		$this->hasOne('jobPortalApp/Company','company_id')->caption('Company Name');
 	   	$this->addField('name')->sortable(true);
       	$this->addField('current_address')->type('text');
 		$this->addField('parmanent_address')->type('text');
-		$this->addField('mobile_no')->type('number')->Caption('Mobile no');;
+		$this->addField('mobile_no')->type('number')->Caption('Mobile no');
         $this->addField('email')->Caption('Your Email');
         $this->addField('location')->mandatory('Branch_Location');
   	    $this->addField('is_active')->type('boolean')->defaultValue(false);
- 	    
+  	    
  	    $this->hasMany('jobPortalApp/Staff','branch_id');
 
 		$this->addHook('beforeDelete',$this);

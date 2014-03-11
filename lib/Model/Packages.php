@@ -6,8 +6,10 @@ class Model_Packages extends \Model_Table{
 		parent::init();
 
 		$this->hasOne('jobPortalApp/Company','company_id');
-		$this->addField('name');
-	
+		$this->addField('name')->mandatory('Fill the name field be must');
+		$this->addField('code')->caption('Package Code')->mandatory('Put the code of package');
+		$this->addField('category')->caption('Category Name')->mandatory('Fill the category name');
+		
 		
 		$this->addHook('beforeSave',$this);
 		
