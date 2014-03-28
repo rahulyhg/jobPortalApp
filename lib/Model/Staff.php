@@ -19,7 +19,7 @@ class Model_Staff extends \Model_Table {
 		$this->addField('parmanent_address')->type('text');
 		$this->addField('category')->enum(array('gen','obc','stc','sc','st','other'));
 		$this->addField('phone_number')->type('number')->Caption('Mobile no');
-		$this->addField('is_marital status')->type('boolean');
+		$this->addField('is_marital_status')->type('boolean');
 		$this->addField('is_active')->type('boolean');
 		
 		
